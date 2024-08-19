@@ -20,7 +20,7 @@ export default defineConfig({
 		mdx(), 
 		keystatic()
 	],
-  output: "server",
+  output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',
     platformProxy: {

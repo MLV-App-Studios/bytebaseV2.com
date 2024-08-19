@@ -1,9 +1,6 @@
 ---
 import '@web/assets/css/main.css';
-
-interface Props {
-	params?: { locale: string };
-}
+import Header from '@web/components/shared/header/header.astro';
 
 const props = Astro.props;
 ---
@@ -12,9 +9,15 @@ const props = Astro.props;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Bytebase</title>
 </head>
 <body>
-	<slot />
+  <Header brand={{ name: "Bytebase" }} />
+	<main class="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
+    <slot />
+  </main>
+  <footer class="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
+    todo...
+  </footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/default.astro';
-import Header from '@web/components/shared/header/header.astro';
+
 
 // const { slug } = Astro.params;
 // if (slug === undefined) {
@@ -14,10 +14,9 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
 ---
-
 <Layout>
-  <Header links={headings} brand={{ name: "Bytebase" }} />
+  
 	<Content />
 </Layout>
