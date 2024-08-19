@@ -11,5 +11,5 @@ indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = false
 
-[{.*,*.md,*.mdx,.mdoc*.json,*.toml,*.yml,*.json5}]
+[{.*,*.md,*.mdx,.mdoc*.json,*.toml,*.yml,*.json5,*.ts,*.tsx,*.astro,*.vue,*.jsx}]
 indent_style = space
