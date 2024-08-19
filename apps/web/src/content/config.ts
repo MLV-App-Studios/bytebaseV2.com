@@ -1,5 +1,5 @@
-import { HomepageSchema } from '../schemas';
+import homepage from '@web/schemas';
 
 export const collections = {
-	'home': HomepageSchema
+	'pages': homepage
 }

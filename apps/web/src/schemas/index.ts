@@ -1,5 +1,5 @@
-import HomepageSchema from "./homepage";
+import homepage from "./homepage";
 
-export {
-	HomepageSchema
-};
+export default {
+  homepage
+}
