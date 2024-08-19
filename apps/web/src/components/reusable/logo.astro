@@ -1,0 +1,26 @@
+---
+import { cn } from '@web/lib/utils';
+import { Image } from 'astro:assets';
+import DefaultLogo from '@web/assets/images/logo.svg';
+
+interface Props {
+	logo?: typeof DefaultLogo; // todo
+	class?: string;
+	className?: string;
+}
+
+const { ...props } = Astro.props;
+const additionalClass = props.class || props.className;
+
+---
+<div>
+	<slot name="default">
+		<Image
+			src={props.logo || DefaultLogo}
+			alt="Bytebase logo"
+			width={150}
+			height={32}
+			class={cn('h-8 w-auto xl:h-7', additionalClass)}
+		/>
+	</slot>
+</div>

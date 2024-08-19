@@ -1,5 +1,11 @@
 ---
-import '../assets/css/global.css';
+import '@web/assets/css/main.css';
+
+interface Props {
+	params?: { locale: string };
+}
+
+const props = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
