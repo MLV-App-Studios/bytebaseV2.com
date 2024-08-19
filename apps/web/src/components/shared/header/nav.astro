@@ -1,0 +1,23 @@
+---
+import { cn } from "@web/lib/utils";
+import Link from "@web/components/reusable/link/link.astro";
+
+interface Props {
+	items: Record<string, any>[];
+	class?: string;
+	className?: string;
+}
+
+const props = Astro.props;
+---
+{Boolean(props.items.length) && (
+	<ul class={cn('ml-9 mt-0.5 flex items-center gap-1 md:hidden', )}>
+		{props.items.map((item) => (
+			<li class="group relative inline-block hover:cursor-pointer">
+				<Link href="{item.href}" class="transition-colors duration-200 inline-flex leading-none items-center text-14 text-gray-15 hover:text-primary-1 disabled:text-gray-60 px-3 py-2.5 text-16 font-medium tracking-wider">
+					<span slot="default">{item.label}</span>
+				</Link>
+			</li>
+		))}
+	</ul>
+)}

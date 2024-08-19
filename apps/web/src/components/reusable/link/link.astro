@@ -1,0 +1,30 @@
+---
+import { cn } from "@web/lib/utils";
+
+interface Props {
+  href: string;
+	label?: string;
+  rel?: string;
+  isExternal?: boolean;
+  class?: string;
+	before?: any;
+	after?: any;
+}
+
+const { href, class: classList, isExternal, rel = '', ...props } = Astro.props;
+---
+<a
+	class={cn('transition-colors duration-200', classList)}
+	href={href}
+	rel={`${rel}${isExternal ? 'nofollow noopener noreferrer external' : ''}`}
+>
+	<slot name="before">
+		{props.before}
+	</slot>
+	<slot name="default">
+		{props.label}
+	</slot>
+	<slot name="after">
+		{props.after}
+	</slot>
+</a>
