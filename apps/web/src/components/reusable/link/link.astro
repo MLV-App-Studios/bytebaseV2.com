@@ -15,7 +15,7 @@ const { href, class: classList, isExternal, rel = '', ...props } = Astro.props;
 ---
 <a
 	class={cn('transition-colors duration-200', classList)}
-	href={href}
+	href={href || '#'}
 	rel={`${rel}${isExternal ? 'nofollow noopener noreferrer external' : ''}`}
 >
 	<slot name="before">

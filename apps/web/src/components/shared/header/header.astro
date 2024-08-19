@@ -1,6 +1,5 @@
 ---
-import Button from "@web/components/shared/button/button.astro"
-import Link from "@web/components/shared/link/link.astro"
+import Link from "@web/components/reusable/link/link.astro"
 
 import Logo from '@web/components/reusable/logo.astro';
 import { cn } from "@web/lib/utils";
@@ -12,8 +11,8 @@ type Brand = {
 
 interface Props {
 	brand: Brand;
-	links?: string[];
-	cta?: string[];
+	links?: Record<string, any>[];
+	cta?: Record<string, any>[];
 	class?: string;
 }
 
@@ -22,14 +21,24 @@ const props = Astro.props;
 
 <header class={cn('safe-paddings fixed left-0 right-0 top-0 z-30 h-auto w-full bg-white sm:z-50', props.class)}>
 	<nav class={cn('container flex items-center py-[18px] md:justify-between md:py-[10px]')}>
-		<a class="transition-colors duration-200 shrink-0" href="/">
-			<Logo />
-		</a>
-		<ul class="ml-9 mt-0.5 flex items-center gap-1 md:hidden">
-			links
-		</ul>
-		<div class="ml-auto flex items-center gap-4 md:mr-10 sm:hidden">
-			cta
+		<div class="flex items-center justify-between">
+			<a class="transition-colors duration-200 shrink-0" href="/">
+				<Logo />
+			</a>
+			{props.links && Boolean(props.links?.length) && (
+				<ul class="ml-9 mt-0.5 flex items-center gap-1 md:hidden">
+					{props.links.map((item, key) => (
+						<Link href={item.href} {...item} />
+					))}
+				</ul>
+			)}
 		</div>
+		{props.cta && Boolean(props.cta?.length) && (
+			<div class="ml-auto flex items-center gap-4 md:mr-10 sm:hidden">
+				{props.cta.map((item, key) => (
+					<Link href={item.href} {...item} />
+				))}
+			</div>
+		)}
 	</nav>
 </header>
